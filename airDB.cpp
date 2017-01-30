@@ -1,7 +1,8 @@
-
+#include "passenger.h"
 #include <iostream>
 
 int main() {
-  std::cout << "Hello World!";
+  passenger p;
+  p.print();
   //hello seeing how this works
 }

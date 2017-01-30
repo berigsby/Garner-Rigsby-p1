@@ -1,33 +1,25 @@
-#include "Passenger.h"
+#include "passenger.h"
 #include <iostream>
 #include <string>
 #include <sstream>
 using namespace std;
 
-
-Passenger::Passenger(){
-  position=0;
-}
-
-void print(passen p)
+void passenger::print()
 {
-  cout << p.flightNo<<endl;
-  cout << p.lastName<<endl;
-  cout << p.firstName<<endl;
-  cout << p.seatNo<<endl;
+  cout << "HI" << endl;
 }
 
-void Passenger::Initializer(int flightNo, string lastName,string firstName,int seatNo){
-  pass[position].flightNo = flightNo;
-  pass[position].lastName = lastName;
-  pass[position].firstName = firstName;
-  pass[position].seatNo = seatNo;
-  position++;
+void passenger::Initializer(int flightNo, string lastName,string firstName,int seatNo){
+  this->flightNo = flightNo;
+  this->lastName = lastName;
+  this->firstName = firstName;
+  this->seatNo = seatNo;
 }
-
+/*
 int main ()
 {
   Passenger p;
   p.Initializer(50, "Garner", "Jalysa", 45);
   print(pass[0]);
 }
+*/

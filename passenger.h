@@ -4,23 +4,17 @@
 
 using namespace std;
 
-struct passen {
+class passenger
+{
+ public:
   int flightNo;
   string lastName;
   string firstName;
   int seatNo;
-}   pass [50];
 
-class Passenger
-{
- public:
-  Passenger();
-  void print(passen p);
+  void print();
   void Initializer(int flightNo, string lastName,string firstName,int seatNo);
-    
- protected:
- private:
-  int position;
+  //CompareTo
 };
 
 #endif // PASSENGER_H
