@@ -5,13 +5,14 @@
 
 using namespace std;
 
+
 class flight
 {
-  int maxPassenger;
-  passenger passengerList[maxPassenger];
-  int currentPos = 0;
-  int flightNo = 0;
-
+  int maxPassenger; 
+  passenger *passengerList=new passenger[maxPassenger];
+  int currentPos;
+  int flightNo;
+  
   flight(int maxPassenger, int flightNo);
   void MakeFlightEmpty();
   bool IsFlightFull() const;
@@ -21,7 +22,7 @@ class flight
   void removePassenger(passenger passenger);
   void ResetList();
   passenger GetNextPassenger();
-  void showAllPassengers(Flight passengerList);
+  void showAllPassengers(flight passengerList);
 
 };
 

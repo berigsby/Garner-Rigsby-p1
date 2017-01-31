@@ -5,5 +5,3 @@
 #include <sstream>
 using namespace std;
 
-//flight::flight(int maxPassenger,int flightNo){
-//}
