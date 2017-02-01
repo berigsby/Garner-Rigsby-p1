@@ -5,6 +5,9 @@
 #include <sstream>
 using namespace std;
 
+/*NEEDS WORK: for some reason, when I add more than two passengers it gives me a segement fault                                      I don't know why!!! Also when i use the removePassenger with two passenger objects it works                                        but not three or more*/
+
+
 /*have to come back to the that*/
 flight::flight(int maxPassenger,int flightNo){
   currentPos=0;
