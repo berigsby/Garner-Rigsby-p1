@@ -22,7 +22,7 @@ class flight
   void removePassenger(passenger passenger);
   void ResetList();
   passenger GetNextPassenger();
-  void showAllPassengers(flight passengerList);
+  void showAllPassengers();
 
 };
 
