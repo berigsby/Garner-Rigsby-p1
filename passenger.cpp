@@ -10,16 +10,12 @@ void passenger::print()
 }
 
 void passenger::Initializer(int flightNo, string lastName,string firstName,int seatNo){
+  // cout <<"flightNo is: "<<flightNo<<endl;
   this->flightNo = flightNo;
   this->lastName = lastName;
   this->firstName = firstName;
   this->seatNo = seatNo;
 }
-/*
-int main ()
-{
-  Passenger p;
-  p.Initializer(50, "Garner", "Jalysa", 45);
-  print(pass[0]);
-}
-*/
+
+
+

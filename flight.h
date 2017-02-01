@@ -8,6 +8,7 @@ using namespace std;
 
 class flight
 {
+ public:
   int maxPassenger; 
   passenger *passengerList=new passenger[maxPassenger];
   int currentPos;

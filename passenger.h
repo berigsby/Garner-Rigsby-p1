@@ -11,9 +11,10 @@ class passenger
   string lastName;
   string firstName;
   int seatNo;
-
+  int getFlightNo();
   void print();
   void Initializer(int flightNo, string lastName,string firstName,int seatNo);
+
   //CompareTo
 };
 
