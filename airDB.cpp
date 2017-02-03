@@ -31,9 +31,9 @@ int main(){
  flight f(12,12); 
  f.addPassenger(p0);
  f.addPassenger(p1);
- // f.addPassenger(p0);
- //f.addPassenger(p2);
+ //f.addPassenger(p0);
+ f.addPassenger(p2);
  // f.removePassenger(p1);
- //f.showAllPassengers();
+ f.showAllPassengers();
   return 0;
 }
