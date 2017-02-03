@@ -24,7 +24,7 @@ int main(){
  passenger p1;
  p1.Initializer(1,"Garner","Jalysa",1);
  passenger p2;
- p2.Initializer(1,"Garner","Jalysa",1);
+ p2.Initializer(1,"Pass","Inger",2);
  passenger p0;
  p0.Initializer(12,"Rigsby","Ben",2); 
  
@@ -33,7 +33,8 @@ int main(){
  f.addPassenger(p1);
  //f.addPassenger(p0);
  f.addPassenger(p2);
- // f.removePassenger(p1);
+ f.removePassenger(p1);
  f.showAllPassengers();
-  return 0;
+
+ return 0;
 }

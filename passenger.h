@@ -4,6 +4,8 @@
 
 using namespace std;
 
+enum RelationType{ LESS, GREATER, EQUAL};
+
 class passenger
 {
  public:
@@ -14,8 +16,7 @@ class passenger
   int getFlightNo();
   void print();
   void Initializer(int flightNo, string lastName,string firstName,int seatNo);
-
-  //CompareTo
+  RelationType ComparedTo(passenger p) const;
 };
 
 #endif // PASSENGER_H
