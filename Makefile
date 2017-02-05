@@ -1,11 +1,11 @@
-p1: airDB.o flight.o passenger.o
-	g++ -Wall -std=c++14 -g -O0 -pedantic-errors airDB.o flight.o flight.h passenger.o passenger.h -o p1
+p1: airDB.o Flight.o Passenger.o
+	g++ -Wall -std=c++14 -g -O0 -pedantic-errors airDB.o Flight.o Flight.h Passenger.o Passenger.h -o p1
 
-flight.o: flight.cpp
-	g++ -Wall -std=c++14 -g -O0 -pedantic-errors -c flight.cpp
+Flight.o: Flight.cpp
+	g++ -Wall -std=c++14 -g -O0 -pedantic-errors -c Flight.cpp
 
-passenger.o: passenger.cpp
-	g++ -Wall -std=c++14 -g -O0 -pedantic-errors -c passenger.cpp
+Passenger.o: Passenger.cpp
+	g++ -Wall -std=c++14 -g -O0 -pedantic-errors -c Passenger.cpp
 
 airDB.o: airDB.cpp
 	g++ -Wall -std=c++14 -g -O0 -pedantic-errors -c airDB.cpp

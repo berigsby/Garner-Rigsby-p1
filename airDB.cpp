@@ -1,5 +1,5 @@
-#include "passenger.h"
-#include "flight.h"
+#include "Passenger.h"
+#include "Flight.h"
 #include <iostream>
 
 using namespace std;
@@ -21,14 +21,11 @@ int main(){
   f.showAllPassengers();
   cout<<"Is the flight full: "<<boolalpha<<f.IsFlightFull()<<endl;*/
   // flight f(12,12);
- passenger p1;
- p1.Initializer(1,"Garner","Jalysa",1);
- passenger p2;
- p2.Initializer(1,"Pass","Inger",2);
- passenger p0;
- p0.Initializer(12,"Rigsby","Ben",2); 
+ Passenger p1(1,"Garner","Jalysa",1);
+ Passenger p2(1,"Pass","Inger",2);
+ Passenger p0(12,"Rigsby","Ben",2); 
  
- flight f(12,12); 
+ Flight f(12,12); 
  f.addPassenger(p0);
  f.addPassenger(p1);
  //f.addPassenger(p0);
