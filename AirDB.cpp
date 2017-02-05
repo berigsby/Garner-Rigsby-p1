@@ -7,7 +7,7 @@
 #include <sstream>
 
 using namespace std;
-
+/*still cant add flights to AirDB, once that's done i think that's it*/
 AirDB::AirDB(){
 }
 
@@ -51,11 +51,17 @@ void AirDB::ResetList(){
 }//ResetList
 
 Flight AirDB::GetNextFlight(){
+  if(currentPos == (maxFlights-1)){
   return * list[currentPos];
+  }
+  else
+    return * list[currentPos+1];
 }//GetNextFlight
 
 void AirDB::showAllFlights(){
-
+  for(int i = 0; i < currentPos; i++){
+    cout << list[i]->flightNo << endl;
+  }
 }//showAllFlights
 
 void AirDB::showAllFlightsAndPassengers(){
@@ -63,12 +69,14 @@ void AirDB::showAllFlightsAndPassengers(){
   for(int x = 0; x<currentPos; x++){
     list[x]->showAllPassengers();
   }//for
+  showAllFlights();
 }//showAllFlightsAndPassengers
 
 int main(){
   string line;
   int number = 1;
   Flight f(50,50);
+  AirDB d;
   ifstream myfile("passengers.dat");
   if(myfile.is_open()){
     while(getline (myfile,line)){
@@ -86,7 +94,9 @@ int main(){
     }
     myfile.close();
   }
-   f.showAllPassengers();
+  Passenger p2(13,"Garner","Jalysa",13);
+  f.removePassenger(p2); //it works!!!
+  f.showAllPassengers();
   return 0;
 
 }
