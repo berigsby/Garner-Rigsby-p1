@@ -8,10 +8,11 @@ using namespace std;
 class AirDB{
 
  public:
-  const int maxFlights = 20;
+  const int maxFlights=20;
   Flight *list[20];
   int currentPos;// = 0;
   AirDB();
+
   bool IsFlightFull() const;
   int GetNumFlight() const;
   Flight GetFlight(Flight flight2, bool& found);

@@ -12,11 +12,10 @@ Flight::Flight(int maxPassenger,int flightNo){
   this->flightNo = flightNo;
   this->maxPassenger = maxPassenger;
   
- }//flight constructor
+}//flight constructor
 
 Flight::Flight(){
   
-
 }//flight constructor
 
 Flight::~Flight(){
