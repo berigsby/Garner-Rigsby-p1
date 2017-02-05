@@ -6,15 +6,15 @@
 using namespace std;
 
 const int maxFlights = 20;
-Flight *list[maxFlights];
+//Flight *list[maxFlights];
 int currentPos = 0;
 
 bool AirDB::IsFlightFull() const{
-  return true;
+  return (currentPos-1 == 20);
 }//IsFlightFull
 
 int AirDB::GetNumFlight() const{
-  return 0;
+  return currentPos-1;
 }//GetNumFlight
 
 Flight AirDB::GetFlight(Flight flight2, bool& found){
@@ -23,15 +23,21 @@ Flight AirDB::GetFlight(Flight flight2, bool& found){
 }//GetFlight
 
 void AirDB::addFlight(Flight flight){
-  
+  list[currentPos] = & flight;
 }//addFlight
 
 void AirDB::removeFlight(Flight flight){
-
+  for(int i =0; i < currentPos; i++){
+    if(list[i]->flightNo == flight.flightNo){
+      list[i] = list[currentPos-1];
+      currentPos--;
+      break;
+    }//if
+  }//for
 }//removeFlight
 
 void AirDB::ResetList(){
-
+  currentPos = 0;
 }//ResetList
 
 Flight AirDB::GetNextFlight(){
