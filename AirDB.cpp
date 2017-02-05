@@ -2,6 +2,9 @@
 #include "Flight.h"
 #include "AirDB.h"
 #include <iostream>
+#include <string>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -63,30 +66,27 @@ void AirDB::showAllFlightsAndPassengers(){
 }//showAllFlightsAndPassengers
 
 int main(){
-  // cout <<"hello"<<endl;
-  /*  passenger p;
-  p.Initializer(1,"Garner","Jalysa",1);
-  flight f(12,12);
-  f.addPassenger(p);
-  //f.showAllPassengers();
-  passenger p1;
-  p1.Initializer(12,"Rigsby","Ben",2);
-  f.addPassenger(p1);
-  f.showAllPassengers();
-  cout<<"Is the flight full: "<<boolalpha<<f.IsFlightFull()<<endl;*/
-  // flight f(12,12);
-  Passenger p1(1,"Garner","Jalysa",1);
-  Passenger p2(1,"Pass","Inger",2);
-  Passenger p0(12,"Rigsby","Ben",2); 
- 
-  Flight f(12,12); 
-  f.addPassenger(p0);
-  f.addPassenger(p1);
-  //f.addPassenger(p0);
-  f.addPassenger(p2);
-  f.removePassenger(p1);
-  f.showAllPassengers();
-
+  string line;
+  int number = 1;
+  Flight f(50,50);
+  ifstream myfile("passengers.dat");
+  if(myfile.is_open()){
+    while(getline (myfile,line)){
+    stringstream iss(line);
+    string lastname;
+       string firstname;
+	iss >> lastname;
+	iss >> firstname;
+	Passenger p(number,lastname,firstname,number);
+	f.addPassenger(p);
+	//cout <<lastname<<endl;
+	//cout <<firstname<<endl;
+      number++;
+	// cout << line << endl;
+    }
+    myfile.close();
+  }
+   f.showAllPassengers();
   return 0;
 
 }

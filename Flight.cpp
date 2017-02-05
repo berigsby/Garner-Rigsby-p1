@@ -69,7 +69,7 @@ void Flight::showAllPassengers(){
     cout <<  PassengerList[i].flightNo;
     cout <<"          "<< PassengerList[i].lastName;
     cout <<"        "<<PassengerList[i].firstName;
-    cout<<"         "<<PassengerList[i].seatNo<<endl;
+    cout<<"   "<<PassengerList[i].seatNo<<endl;
   }//for
 }//showAllPassengers
 
