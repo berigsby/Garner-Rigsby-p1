@@ -11,19 +11,12 @@ Flight::Flight(int maxPassenger,int flightNo){
   PassengerList = new Passenger[maxPassenger];
   this->flightNo = flightNo;
   this->maxPassenger = maxPassenger;
-<<<<<<< HEAD
   
  }//flight constructor
 
 Flight::Flight(){
   
-=======
 }//flight constructor
-
-Flight::Flight(){
-
->>>>>>> 9ed67c3bf870db88f88859cbbb7de93f79794851
-}//Flight
 
 Flight::~Flight(){
   delete[] PassengerList;
@@ -73,11 +66,9 @@ void Flight::removePassenger(Passenger passenger){
 void Flight::showAllPassengers(){
   cout<<"Flight #   LastName   FirstName   Seat#"<<endl; 
   for(int i=0; i < currentPos; i++){
-<<<<<<< HEAD
     cout <<  PassengerList[i].flightNo;
-=======
     cout << PassengerList[i].flightNo;
->>>>>>> 9ed67c3bf870db88f88859cbbb7de93f79794851
+
     cout <<"          "<< PassengerList[i].lastName;
     cout <<"        "<<PassengerList[i].firstName;
     cout<<"         "<<PassengerList[i].seatNo<<endl;
