@@ -2,12 +2,19 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+<<<<<<< HEAD
 //#include <ofstream>
 using namespace std;
 
 void Passenger::Print(ofstream&)const
 {
   // os << "Print something out"<<endl;
+=======
+using namespace std;
+
+void Passenger::Print()
+{
+>>>>>>> 9ed67c3bf870db88f88859cbbb7de93f79794851
   cout << this->flightNo << " ";
   cout << this->firstName << " ";
   cout << this->lastName << " ";
@@ -38,4 +45,7 @@ RelationType Passenger::ComparedTo(Passenger p) const{
   }//if
   return LESS;
 }//CompareTo
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9ed67c3bf870db88f88859cbbb7de93f79794851
