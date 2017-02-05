@@ -23,8 +23,8 @@ Flight AirDB::GetFlight(Flight flight2, bool& found){
 
 void AirDB::addFlight(Flight flight){
 
-   if(currentPos < maxFlights){
-    //  list = new Flight[maxFlights];
+  if(currentPos < maxFlights){
+  //list = new Flight[maxFlights];
   list[currentPos] = & flight;
   currentPos++;
   }
@@ -48,8 +48,7 @@ void AirDB::ResetList(){
 }//ResetList
 
 Flight AirDB::GetNextFlight(){
-  Flight f;
-  return f;
+  return * list[currentPos];
 }//GetNextFlight
 
 void AirDB::showAllFlights(){
@@ -57,8 +56,10 @@ void AirDB::showAllFlights(){
 }//showAllFlights
 
 void AirDB::showAllFlightsAndPassengers(){
-  Flight f; /*THIS IS WHERE I GET THE ERROR!!!!!*/
-  f.showAllPassengers();
+   /*THIS IS WHERE I GET THE ERROR!!!!!*/
+  for(int x = 0; x<currentPos; x++){
+    list[x]->showAllPassengers();
+  }//for
 }//showAllFlightsAndPassengers
 
 int main(){
