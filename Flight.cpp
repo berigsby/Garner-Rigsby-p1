@@ -13,6 +13,10 @@ Flight::Flight(int maxPassenger,int flightNo){
   this->maxPassenger = maxPassenger;
 }//flight constructor
 
+Flight::Flight(){
+
+}//Flight
+
 Flight::~Flight(){
   delete[] PassengerList;
 }//deconstructor
