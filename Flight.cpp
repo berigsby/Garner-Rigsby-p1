@@ -9,18 +9,17 @@ Flight::Flight(int maxPassenger,int flightNo){
   currentPos=0;
   PassengerList = new Passenger[maxPassenger];
   this->flightNo = flightNo;
-  this->maxPassenger = maxPassenger;
-  
+  this->maxPassenger = maxPassenger;  
 }//flight constructor
 
 Flight::Flight(const Flight &other){
   currentPos = other.currentPos;
   maxPassenger = other.maxPassenger;
+  flightNo = other.flightNo;
   PassengerList = new Passenger[maxPassenger];
   for(int x = 0; x < currentPos; x++){
     PassengerList[x] = other.PassengerList[x];
   }//for
-  flightNo = other.flightNo;
 }//copyConstructor
 
 Flight::~Flight(){
@@ -83,6 +82,5 @@ bool Flight::IsFlightFull()const{
 }//isFlightFull
 
 Passenger Flight::GetNextPassenger(){
-  Passenger p1;
-  return p1;
+  return  PassengerList[currentPos];
 }//GetNextPassenger

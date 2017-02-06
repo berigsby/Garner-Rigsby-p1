@@ -78,7 +78,8 @@ int main(){
   AirDB listy;
   // listy.addFlight(f);
   listy.addFlight(f);
-  listy.showAllFlightsAndPassengers();
-  // f.showAllPassengers();
+  //listy.showAllFlightsAndPassengers();
+  //cout << listy.list[0]->PassengerList[0].flightNo <<endl;
+   f.showAllPassengers();
   return 0;
 }
