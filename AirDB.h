@@ -18,7 +18,7 @@ class AirDB{
   bool IsFlightFull() const;
   int GetNumFlight() const;
   Flight GetFlight(Flight flight2, bool& found);
-  void addFlight(Flight flight);
+  void addFlight(Flight * flight);
   void removeFlight(Flight flight);
   void ResetList();
   Flight GetNextFlight();

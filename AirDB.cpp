@@ -25,9 +25,9 @@ Flight AirDB::GetFlight(Flight flight2, bool& found){
   return flight2;
 }//GetFlight
 
-void AirDB::addFlight(Flight flight){
+void AirDB::addFlight(Flight * flight){
   if(currentPos < maxFlights){
-    list[currentPos] = & flight;
+    list[currentPos] = flight;
     currentPos++;
   }//if
 }//addFlight
