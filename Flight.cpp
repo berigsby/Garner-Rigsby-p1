@@ -5,7 +5,6 @@
 #include <sstream>
 using namespace std;
 
-/*have to come back to the that*/
 Flight::Flight(int maxPassenger,int flightNo){
   currentPos=0;
   PassengerList = new Passenger[maxPassenger];

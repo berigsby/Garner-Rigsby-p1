@@ -9,7 +9,7 @@ class Flight
 {
  public:
   int maxPassenger; 
-  Passenger *PassengerList;//=new passenger[maxPassenger];
+  Passenger *PassengerList;
   int currentPos;
   int flightNo;
   

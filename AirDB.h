@@ -9,8 +9,8 @@ class AirDB{
 
  public:
   const int maxFlights=20;
-  Flight **list;//[20];
-  int currentPos;// = 0;
+  Flight **list;
+  int currentPos;
 
   AirDB();
   ~AirDB();

@@ -22,8 +22,6 @@ class Passenger{
   RelationType ComparedTo(Passenger p) const;
   void Print(std::ofstream&)const;
 
-  
-
 };
 
 #endif // PASSENGER_H

@@ -16,27 +16,24 @@ int main(){
   ifstream myfile("passengers.dat");
   if(myfile.is_open()){
     while(getline (myfile,line)){
-    stringstream iss(line);
-    string lastname;
-       string firstname;
-	iss >> lastname;
-	iss >> firstname;
-	Passenger p(number,lastname,firstname,number);
-	f.addPassenger(p);
-	//cout <<lastname<<endl;
-	//cout <<firstname<<endl;
-	number++;
-	// cout << line << endl;
-    }
+      stringstream iss(line);
+      string lastname;
+      string firstname;
+      iss >> lastname;
+      iss >> firstname;
+      Passenger p(number,lastname,firstname,number);
+      f.addPassenger(p);
+      number++;
+    }//while
     myfile.close();
-  }
-  f.showAllPassengers();
+  }//if
+  //f.showAllPassengers();
 
   AirDB listy;
-  //listy.list = new Flight*[20];
-  //listy.currentPos = 0;
   listy.addFlight(f);
   listy.addFlight(f);
 
+  listy.showAllFlightsAndPassengers();
+  f.showAllPassengers();
   return 0;
 }
