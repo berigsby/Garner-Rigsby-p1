@@ -18,7 +18,7 @@ bool AirDB::IsFlightFull() const{
 }//IsFlightFull
 
 int AirDB::GetNumFlight() const{
-  return currentPos-1;
+  return currentPos;
 }//GetNumFlight
 
 Flight AirDB::GetFlight(Flight flight2, bool& found){
@@ -29,12 +29,14 @@ void AirDB::addFlight(Flight * flight){
   if(currentPos < maxFlights){
     list[currentPos] = flight;
     currentPos++;
+    cout << "Flight number " << flight->flightNo << " was added to flight list" << endl;
   }//if
 }//addFlight
 
 void AirDB::removeFlight(Flight flight){
   for(int i =0; i < currentPos; i++){
     if(list[i]->flightNo == flight.flightNo){
+      cout << "Flight number " << list[i]->flightNo << " was removed from the flight list" << endl;
       list[i] = list[currentPos-1];
       currentPos--;
       break;
@@ -56,7 +58,7 @@ Flight AirDB::GetNextFlight(){
 
 void AirDB::showAllFlights(){
   for(int i = 0; i < currentPos; i++){
-    cout << list[i]->flightNo << endl;
+    cout << "Flight Number: " << list[i]->flightNo << endl;
   }
 }//showAllFlights
 

@@ -1,0 +1,23 @@
+# Project 01
+
+Jalysa Garner (810-621-498)
+Benjamin Rigsby (811-180-250)
+
+## Instructions
+
+To clean my code(remove any compiled files), type:
+$ make clean
+
+To compile my code, type:
+$ make
+
+To run my code(after compiling it), type the corresponding
+file you want to run:
+$ ./p1
+
+## Reflection
+We chose to use arrays to store our data because it was easier
+to access information. We also used pointers to save memory space
+(not having to copy entire objects). We used three classes with
+header files that specific methods and information via the project
+description.

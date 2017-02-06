@@ -51,7 +51,7 @@ void Flight::addPassenger(Passenger p){
   if(currentPos < maxPassenger){
     PassengerList[currentPos] = p;
     currentPos++;
-    cout << p.lastName << " added to flight " << flightNo << endl;
+    cout << p.firstName << " " << p.lastName << " added to flight " << flightNo << " at seat " << p.seatNo << endl;
   }//if
 }//addPassenger
 

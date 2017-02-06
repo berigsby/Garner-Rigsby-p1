@@ -21,11 +21,13 @@ int main(){
  Flight f4(50,4);
  Flight f5(50,5);
 
- cout <<"Flight f has 50 max passengers and flight No is 1"<<endl;
- cout <<"Flight f2 has 50 max passengers and flight No is 2"<<endl;
- cout <<"Flight f3 has 50 max passengers and flight No is 3"<<endl;
- cout <<"Flight f4 has 50 max passengers and flight No is 4"<<endl;
- cout <<"Flight f5 has 50 max passengers and flight No is 5"<<endl; 
+  AirDB flightList;
+  flightList.addFlight(&f);
+  flightList.addFlight(&f2);
+  flightList.addFlight(&f3);
+  flightList.addFlight(&f4);
+  flightList.addFlight(&f5);
+
  /************************************************************************************************/
 
  cout << "TASK TWO" << endl;
@@ -113,6 +115,100 @@ int main(){
   f3.removePassenger(r13);
   f3.removePassenger(r14);
   f3.removePassenger(r15);
+  /*******************************************************************************/
+
+  cout << "TASK FIVE" << endl;
+  /*TASK FIVE*/
+  Passenger r16(1,"Spencer","Sean",41);
+  Passenger r17(1,"Savich","Austin",42);
+  Passenger r18(1,"Pink","Pradeep",43);
+  Passenger r19(3,"Falcons","Benjamin",44);
+  Passenger r20(3,"Gaga","Melvin",45);
+  Passenger r21(3,"Superbowl","Nachammai",46);
+  Passenger r22(3,"Sunday","Robert",47);
+  Passenger r23(3,"Bradey","Melissa",48);
+  f.addPassenger(r16);
+  f.addPassenger(r17);
+  f.addPassenger(r18);
+  f3.addPassenger(r19);
+  f3.addPassenger(r20);
+  f3.addPassenger(r21);
+  f3.addPassenger(r22);
+  f3.addPassenger(r23);
+  /*******************************************************************************/
+
+  cout << "TASK SIX" << endl;
+  /*TASK SIX*/
+  Passenger r24(3, "Bradey", "Melissa", 48);
+  f3.removePassenger(r24);
+  Passenger r25(3, "Bradey", "Melissa", 49);
+  f3.addPassenger(r25);
+  /*******************************************************************************/
+
+  cout << "TASK SEVEN" << endl;
+  /*TASK SEVEN*/
+  f3.showAllPassengers();
+
+  /*******************************************************************************/
+  
+  cout << "TASK EIGHT" << endl;
+  /*TASK EIGHT*/
+  flightList.removeFlight(f5);
+
+  /*******************************************************************************/
+  
+  cout << "TASK NINE" << endl;
+  /*TASK NINE*/
+  cout << "Number of flights: " << flightList.GetNumFlight() << endl;
+  flightList.showAllFlights();
+
+  /*******************************************************************************/
+  
+  cout << "TASK TEN" << endl;
+  /*TASK TEN*/
+  Flight f6(50,6);
+  flightList.addFlight(&f6);
+
+  /*******************************************************************************/
+  
+  cout << "TASK ELEVEN" << endl;
+  /*TASK ELEVEN*/
+  ifstream myfile2("passengers.dat");
+  if(myfile2.is_open()){
+    seatNumber = 1;
+    while(getline (myfile2,line)){
+      stringstream iss(line);
+      string lastname;
+      string firstname;
+      iss >> lastname;
+      iss >> firstname;
+      flightNumber = 6;
+      lastname += "-New";
+      Passenger newp(flightNumber,lastname,firstname,seatNumber);
+      f6.addPassenger(newp);
+      seatNumber ++;
+      if( seatNumber == 26) break;
+    }//while
+    myfile2.close();
+  }//if
+
+  /*******************************************************************************/
+  
+  cout << "TASK TWELVE" << endl;
+  /*TASK TWELVE*/
+  flightList.removeFlight(f6);
+  f6.flightNo = 7;
+  for(int x = 0; x < 25; x++){
+    f6.PassengerList[x].flightNo = 7;
+  }//for
+
+  flightList.addFlight(&f6);
+  /*******************************************************************************/
+  
+  cout << "TASK THIRTEEN" << endl;
+  /*TASK THIRTEEN*/ 
+  flightList.showAllFlightsAndPassengers();
+
 
   //AirDB listy;
   //listy.addFlight(&f);
