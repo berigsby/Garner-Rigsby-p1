@@ -62,24 +62,40 @@ int main(){
     myfile.close();
   }//if
   //f.showAllPassengers();
-  /********************************************************************************/
+  /******************************************************************************/
 
   /*TASK THREE*/
+  /******************************************************************************/
   if(f.IsFlightFull()== 1){
     cout<<"Flight "<<f.flightNo<<" is full"<<endl;
   }
-
+  else{
+    cout <<"Flight "<<f.flightNo<<"is not full"<<endl;
+  }
+  /*******************************************************************************/
 
   /*TASK FOUR*/
+  Passenger r1(181,"Srinimukesh","Nachammai",181);
+  Passenger r2(185,"Stone","Robert",185);
+  Passenger r3(189,"Thomas","Melissa",189);
+  Passenger r4(193,"Ton-kollie","Jeffery",193);
+  Passenger r5(197,"Yox","Tyler",197);
+  f.removePassenger(r1);
+  f.removePassenger(r2);
+  f.removePassenger(r3);
+  f.removePassenger(r4);
+  f.removePassenger(r5);
 
-
-  //Passenger p1(13,"Garner","Jalysa",13);
-  //f.removePassenger(p1);
-  AirDB listy;
-  // listy.addFlight(f);
-  listy.addFlight(f);
-  //listy.showAllFlightsAndPassengers();
-  //cout << listy.list[0]->PassengerList[0].flightNo <<endl;
-   f.showAllPassengers();
+  /*163          Pollitt-Alt-Alt        Sean   163
+167          Priest-Alt-Alt        Austin   167
+171          @?V-Alt-Alt        Pradeep   171
+175          Rigsby-Alt-Alt        Benjamin   175
+179          Speight-Alt-Alt        Melvin   179
+183          p?Vesh-Alt-Alt        Nachammai   183
+187          Stone-Alt-Alt        Robert   187
+191          Thomas-Alt-Alt        Melissa   191
+195          ie-Alt-Alt        Jeffrey   195
+199          Yox-Alt-Alt        Tyler   4016
+  */
   return 0;
 }
