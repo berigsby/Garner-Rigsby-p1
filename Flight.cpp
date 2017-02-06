@@ -14,9 +14,15 @@ Flight::Flight(int maxPassenger,int flightNo){
   
 }//flight constructor
 
-Flight::Flight(){
-  
-}//flight constructor
+Flight::Flight(const Flight &other){
+  currentPos = other.currentPos;
+  maxPassenger = other.maxPassenger;
+  PassengerList = new Passenger[maxPassenger];
+  for(int x = 0; x < currentPos; x++){
+    PassengerList[x] = other.PassengerList[x];
+  }//for
+  flightNo = other.flightNo;
+}//copyConstructor
 
 Flight::~Flight(){
   delete[] PassengerList;

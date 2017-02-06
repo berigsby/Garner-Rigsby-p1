@@ -14,7 +14,7 @@ class Flight
   int flightNo;
   
   Flight(int maxPassenger, int flightNo);
-  Flight();
+  Flight(const Flight &);
   ~Flight();
   void MakeFlightEmpty();
   bool IsFlightFull() const;

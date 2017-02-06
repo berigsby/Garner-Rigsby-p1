@@ -9,9 +9,11 @@ class AirDB{
 
  public:
   const int maxFlights=20;
-  Flight *list[20];
+  Flight **list;//[20];
   int currentPos;// = 0;
+
   AirDB();
+  ~AirDB();
 
   bool IsFlightFull() const;
   int GetNumFlight() const;
