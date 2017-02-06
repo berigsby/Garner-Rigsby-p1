@@ -10,7 +10,8 @@ using namespace std;
 
 int main(){
   string line;
-  int number = 1;
+  int seatNumber = 1;
+  int flightNumber = 1;
   /*TASK ONE*/ 
  /************************************************************************************************/
  Flight f(50,1);
@@ -36,28 +37,30 @@ int main(){
       string firstname;
       iss >> lastname;
       iss >> firstname;
-      Passenger p(number,lastname,firstname,number);
+      flightNumber = 1;
+      Passenger p(flightNumber,lastname,firstname,seatNumber);
       f.addPassenger(p);
-      number++;
+      flightNumber++;
       lastname += "-Alt";
       
-      Passenger p1(number,lastname,firstname,number);
+      Passenger p1(flightNumber,lastname,firstname,seatNumber);
       f2.addPassenger(p1);
-      number++;
+      flightNumber++;
       lastname += "-Alt";
 
-      Passenger p2(number,lastname,firstname,number);
+      Passenger p2(flightNumber,lastname,firstname,seatNumber);
       f3.addPassenger(p2);
-      number++;
+      flightNumber++;
       lastname += "-Alt";
 
-      Passenger p3(number,lastname,firstname,number);
+      Passenger p3(flightNumber,lastname,firstname,seatNumber);
       f4.addPassenger(p3);
-      number++;
+      flightNumber++;
       lastname += "-Alt";
 
-      Passenger p4(number,lastname,firstname,number);
+      Passenger p4(flightNumber,lastname,firstname,seatNumber);
       f5.addPassenger(p4);
+      seatNumber ++;
       }//while
     myfile.close();
   }//if
@@ -97,5 +100,9 @@ int main(){
 195          ie-Alt-Alt        Jeffrey   195
 199          Yox-Alt-Alt        Tyler   4016
   */
+
+  AirDB listy;
+  listy.addFlight(f);
+  listy.showAllFlightsAndPassengers();
   return 0;
 }
