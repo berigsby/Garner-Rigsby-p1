@@ -36,14 +36,11 @@ Passenger::Passenger(int flightNo, string lastName,string firstName,int seatNo){
 }
 
 RelationType Passenger::ComparedTo(Passenger p) const{
-  if(this->flightNo == p.flightNo){
-    if(this->lastName.compare(p.lastName)==0){
-      if(this->firstName.compare(p.firstName)==0){
-	if(this->seatNo == p.seatNo){
-	  return EQUAL;
-	}//if
-      }//if
-    }//if
-  }//if
-  return LESS;
+  int rv = this->lastName.compare(p.lastName);
+  if(rv == 0)
+    return EQUAL;
+  else if(rv < 0)
+    return LESS;
+  else
+    return GREATER;
 }//CompareTo

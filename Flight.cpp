@@ -51,6 +51,7 @@ void Flight::addPassenger(Passenger p){
   if(currentPos < maxPassenger){
     PassengerList[currentPos] = p;
     currentPos++;
+    cout << p.lastName << " added to flight " << flightNo << endl;
   }//if
 }//addPassenger
 
@@ -60,6 +61,7 @@ removed item with the last item*/
 void Flight::removePassenger(Passenger passenger){
   for(int i =0; i < currentPos; i++){
     if(PassengerList[i].ComparedTo(passenger) == EQUAL){
+      cout << PassengerList[i].lastName << " removed from flight " << flightNo << endl;
       PassengerList[i] = PassengerList[currentPos-1];
       currentPos--;
       break;
