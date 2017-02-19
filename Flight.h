@@ -31,13 +31,18 @@ using namespace std;
 class Flight
 {
  public:
+
+  struct Node{
+    int data;
+    Node * link;
+  };
+
   int maxPassenger; 
-  Passenger *PassengerList;
-  int currentPos;
+  Node * listData;
+  Node * currentPos;
   int flightNo;
-  
+
   Flight(int maxPassenger, int flightNo);
-  Flight(const Flight &);
   ~Flight();
   void MakeFlightEmpty();
   bool IsFlightFull() const;

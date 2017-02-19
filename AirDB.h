@@ -31,22 +31,26 @@ using namespace std;
 class AirDB{
 
  public:
-  const int maxFlights=20;
-  Flight **list;
-  int currentPos;
+  struct Node{
+    int data;
+    Node * link;
+  };
 
-  AirDB();
-  ~AirDB();
+  const int maxFlights=20;
+  Node * listData;
+  Node * currentPos;
 
   bool IsFlightFull() const;
   int GetNumFlight() const;
   Flight GetFlight(Flight flight2, bool& found);
-  void addFlight(Flight * flight);
+  void addFlight(Flight flight);
   void removeFlight(Flight flight);
   void ResetList();
   Flight GetNextFlight();
   void showAllFlights();
   void showAllFlightsAndPassengers();
+  void showNewPassengers(int flightNo, int K);
+  void showFirstPasssener(int flightNo, int K);
 };
 
 #endif // AIRDB_H

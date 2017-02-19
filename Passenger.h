@@ -37,12 +37,8 @@ class Passenger{
   string lastName;
   string firstName;
   int seatNo;
-  int getFlightNo();
 
-  void Print();
   Passenger(int flightNo, string lastName,string firstName,int seatNo);
-  //Passenger(const Passenger &);
-  Passenger();
   RelationType ComparedTo(Passenger p) const;
   void Print(std::ofstream&)const;
 
