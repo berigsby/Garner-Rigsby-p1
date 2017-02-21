@@ -28,40 +28,116 @@
 #include <sstream>
 using namespace std;
 
-Flight::Flight(){
+struct Node2{
+  Passenger passenger;
+  Node2 * link;
+};
 
+Flight::Flight(){
+  length = 0;
+  listData = NULL;
 }//flight constructor
 
 Flight::Flight(int maxPassenger,int flightNo){
-
+  length = 0;
+  listData = NULL;
+  this->maxPassenger = maxPassenger;
+  this->flightNo = flightNo;
 }//flight constructor
 
 Flight::~Flight(){
-
+  Node2 * temp;
+  while(listData != NULL){
+    temp = listData;
+    listData = listData->link;
+    delete temp;
+  }//while
 }//deconstructor
 
 void Flight::MakeFlightEmpty(){
-
+  Node2 * temp;
+  while(listData != NULL){
+    temp = listData;
+    listData = listData->link;
+    delete temp;
+    }//while
+  length = 0;
 }//MakeFlightEmpty
 
 void Flight::ResetList(){
-
+  currentPos = NULL;
 }//ResetList
 
 int Flight::GetNumPassengerInFlight() const{
-  return 0;
+  return length;
 }//GetNumPassengerInFlight
 
 Passenger Flight::GetPassenger(Passenger passenger2, bool& found){
+  bool moreToSearch;
+  Node2 * loc;
+  loc = listData;
+  found = false;
+  moreToSearch = (loc != NULL);
+  while(moreToSearch && !found){
+    if(passenger2.ComparedTo(loc->passenger) == GREATER){
+      loc = loc->link;
+      moreToSearch = (loc != NULL);
+      }else if(passenger2.ComparedTo(loc->passenger) == EQUAL){
+      found = true;
+      passenger2 = loc->passenger;
+    }else{
+      moreToSearch = false;
+    }//else
+  }//while
   return passenger2;
 }//GetPassenger
 
 void Flight::addPassenger(Passenger p){
-
+  Node2 * newNode;
+  Node2 * prevNode;
+  Node2 * loc;
+  bool moreToSearch;
+  loc = listData;
+  prevNode = NULL;
+  moreToSearch = (loc != NULL);
+  
+  while(moreToSearch){
+    if(p.ComparedTo(loc->passenger) == GREATER){
+      prevNode = loc;
+      loc = loc->link;
+      moreToSearch = (loc != NULL);
+    }else{
+      moreToSearch = false;
+    }//else
+  }//while
+  newNode = new Node2;
+  newNode->passenger = p;
+  
+  if(prevNode == NULL){
+    newNode->link = listData;
+    listData = newNode;
+  } else {
+    newNode->link = loc;
+    prevNode->link = newNode;
+  }//else
+  length ++;
 }//addPassenger
 
 void Flight::removePassenger(Passenger passenger){
-
+  Node2 * loc = listData;
+  Node2 * temp;
+  if(passenger.ComparedTo(listData->passenger) == EQUAL){
+    temp = loc;
+    listData = listData->link;
+  }else{
+    while(passenger.ComparedTo((listData->link)->passenger) != EQUAL){
+      loc = loc->link;
+    }//while
+    temp = loc->link;
+    loc->link = (loc->link)->link;
+  }//else
+  delete temp;
+  length --;
 }//removePassenger
 
 void Flight::showAllPassengers(){
@@ -73,6 +149,10 @@ bool Flight::IsFlightFull()const{
 }//isFlightFull
 
 Passenger Flight::GetNextPassenger(){
-  Passenger p(0,"","",0);
-  return p;
+  Passenger passenger;
+  if(currentPos == NULL)
+    currentPos = listData;
+  passenger = currentPos->passenger;
+  currentPos = currentPos->link;
+  return passenger;
 }//GetNextPassenger

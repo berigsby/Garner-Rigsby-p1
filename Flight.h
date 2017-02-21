@@ -28,10 +28,7 @@
 
 using namespace std;
 
-struct Node2{
-  Passenger passenger;
-  Node2 * link;
-};
+struct Node2;
 
 class Flight
 {
@@ -41,6 +38,7 @@ class Flight
   Node2 * listData;
   Node2 * currentPos;
   int flightNo;
+  int length;
 
   Flight();
   Flight(int maxPassenger, int flightNo);
