@@ -33,12 +33,6 @@ struct Node;
 class AirDB{
 
  public:
-  /*
-  struct Node{
-    Flight * flight;
-    Node * link;
-  };
-  */
   AirDB();
   ~AirDB();
 
@@ -57,7 +51,7 @@ class AirDB{
   void showAllFlights();
   void showAllFlightsAndPassengers();
   void showNewPassengers(int flightNo, int K);
-  void showFirstPasssener(int flightNo, int K);
+  void showFirstPassenger(int flightNo, int K);
 };
 
 #endif // AIRDB_H

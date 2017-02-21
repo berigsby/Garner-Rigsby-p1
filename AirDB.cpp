@@ -131,15 +131,6 @@ void AirDB::removeFlight(Flight flight){
 }//removeFlight
 
 void AirDB::ResetList(){
-  /*
-  Node * temp;
-  while(listData != NULL){
-    temp = listData;
-    listData = listData->link;
-    delete temp;
-    }//while
-  length = 0;
-  */
   currentPos = NULL;
 }//ResetList
 
@@ -159,3 +150,11 @@ void AirDB::showAllFlights(){
 void AirDB::showAllFlightsAndPassengers(){
 
 }//showAllFlightsAndPassengers
+
+void AirDB::showNewPassengers(int flightNo, int K){
+
+}//showNewPassengers
+
+void AirDB::showFirstPassenger(int flightNo, int K){
+  
+}//showFirstPassengers
