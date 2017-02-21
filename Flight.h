@@ -28,20 +28,21 @@
 
 using namespace std;
 
+struct Node2{
+  Passenger passenger;
+  Node2 * link;
+};
+
 class Flight
 {
  public:
 
-  struct Node{
-    int data;
-    Node * link;
-  };
-
   int maxPassenger; 
-  Node * listData;
-  Node * currentPos;
+  Node2 * listData;
+  Node2 * currentPos;
   int flightNo;
 
+  Flight();
   Flight(int maxPassenger, int flightNo);
   ~Flight();
   void MakeFlightEmpty();

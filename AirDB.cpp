@@ -27,44 +27,129 @@
 #include <string>
 
 using namespace std;
-/*
+
+struct Node{
+  Flight flight;
+  Node * link;
+};
+
 AirDB::AirDB(){
-  list = new Flight*[maxFlights];
-  currentPos = 0;
+  length = 0;
+  listData = NULL;
 }//Constructor
 
 AirDB::~AirDB(){
-  delete[] list;
+  Node * temp;
+  while(listData != NULL){
+    temp = listData;
+    listData = listData->link;
+    delete temp;
+  }//while
 }//destructor
-*/
 
 bool AirDB::IsFlightFull() const{
-  return false;
+  Node * loc;
+  try{
+    loc = new Node;
+    delete loc;
+    return false;
+  } catch (bad_alloc exception){
+    return true;
+  }//catch
 }//IsFlightFull
 
 int AirDB::GetNumFlight() const{
-  return 0;
+  return length;
 }//GetNumFlight
 
 Flight AirDB::GetFlight(Flight flight2, bool& found){
+  bool moreToSearch;
+  Node * loc;
+  loc = listData;
+  found = false;
+  moreToSearch = (loc != NULL);
+  while(moreToSearch && !found){
+    if(flight2.flightNo > (loc->flight).flightNo){
+      loc = loc->link;
+      moreToSearch = (loc != NULL);
+    }else if(flight2.flightNo == (loc->flight).flightNo){
+      found = true;
+      flight2 = loc->flight;
+    }else{
+      moreToSearch = false;
+    }//else
+  }//while
   return flight2;
 }//GetFlight
 
 void AirDB::addFlight(Flight flight){
-
+  Node * newNode;
+  Node * prevNode;
+  Node * loc;
+  bool moreToSearch;
+  loc = listData;
+  prevNode = NULL;
+  moreToSearch = (loc != NULL);
+  
+  while(moreToSearch){
+    if(flight.flightNo > (loc->flight).flightNo){
+      prevNode = loc;
+      loc = loc->link;
+      moreToSearch = (loc != NULL);
+    }else{
+      moreToSearch = false;
+    }//else
+  }//while
+  newNode = new Node;
+  newNode->flight = flight;
+  
+  if(prevNode == NULL){
+    newNode->link = listData;
+    listData = newNode;
+  } else {
+    newNode->link = loc;
+    prevNode->link = newNode;
+  }//else
+  length ++;
 }//addFlight
 
 void AirDB::removeFlight(Flight flight){
-
+  Node * loc = listData;
+  Node * temp;
+  if(flight.flightNo == (listData->flight).flightNo){
+    temp = loc;
+    listData = listData->link;
+  }else{
+    while(flight.flightNo != ((listData->link)->flight).flightNo){
+      loc = loc->link;
+    }//while
+    temp = loc->link;
+    loc->link = (loc->link)->link;
+  }//else
+  delete temp;
+  length --;
 }//removeFlight
 
 void AirDB::ResetList(){
-
+  /*
+  Node * temp;
+  while(listData != NULL){
+    temp = listData;
+    listData = listData->link;
+    delete temp;
+    }//while
+  length = 0;
+  */
+  currentPos = NULL;
 }//ResetList
 
 Flight AirDB::GetNextFlight(){
-  Flight f(0,0);
-  return f;
+  Flight flight;
+  if(currentPos == NULL)
+    currentPos = listData;
+  flight = currentPos->flight;
+  currentPos = currentPos->link;
+  return flight;
 }//GetNextFlight
 
 void AirDB::showAllFlights(){

@@ -28,6 +28,10 @@
 #include <sstream>
 using namespace std;
 
+Flight::Flight(){
+
+}//flight constructor
+
 Flight::Flight(int maxPassenger,int flightNo){
 
 }//flight constructor

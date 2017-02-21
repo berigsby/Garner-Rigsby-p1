@@ -28,17 +28,24 @@
 
 using namespace std;
 
+struct Node;
+
 class AirDB{
 
  public:
+  /*
   struct Node{
-    int data;
+    Flight * flight;
     Node * link;
   };
+  */
+  AirDB();
+  ~AirDB();
 
   const int maxFlights=20;
-  Node * listData;
-  Node * currentPos;
+  Node * listData = nullptr;
+  Node * currentPos = nullptr;
+  int length;
 
   bool IsFlightFull() const;
   int GetNumFlight() const;
