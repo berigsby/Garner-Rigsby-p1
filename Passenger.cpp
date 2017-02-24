@@ -29,6 +29,13 @@
 
 using namespace std;
 
+Passenger::Passenger(){
+  this->flightNo = -1;
+  this->lastName = "";
+  this->firstName = "";
+  this->seatNo = -1;
+}//Constructor
+
 Passenger::Passenger(int flightNo, string lastName,string firstName,int seatNo){
   this->flightNo = flightNo;
   this->lastName = lastName;
@@ -37,7 +44,7 @@ Passenger::Passenger(int flightNo, string lastName,string firstName,int seatNo){
 }//Constructor
 
 RelationType Passenger::ComparedTo(Passenger p) const{
-  int rv = 0;
+  int rv = (this->lastName).compare(p.lastName);
   if(rv == 0)
     return EQUAL;
   else if(rv < 0)
@@ -46,6 +53,6 @@ RelationType Passenger::ComparedTo(Passenger p) const{
     return GREATER;
 }//CompareTo
 
-void Passenger::Print(std::ofstream&) const{
-
+void Passenger::Print(std::ostream& out) const{
+  out << firstName << " " << lastName << ", on flight " << flightNo << ", in seat " << seatNo << endl;
 }//Print

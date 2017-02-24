@@ -41,7 +41,7 @@ class AirDB{
   Node * currentPos = nullptr;
   int length;
 
-  bool IsFlightFull() const;
+  bool IsFlightsFull() const;
   int GetNumFlight() const;
   Flight GetFlight(Flight flight2, bool& found);
   void addFlight(Flight flight);

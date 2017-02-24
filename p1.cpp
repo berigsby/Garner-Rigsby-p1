@@ -32,6 +32,16 @@
 using namespace std;
 
 int main(){
-
+  AirDB list = AirDB();
+  Flight f1(50,list.GetNumFlight());
+  list.addFlight(f1);
+  Flight f2(100,list.GetNumFlight());
+  list.addFlight(f2);
+  Flight f3(150,list.GetNumFlight());
+  list.addFlight(f3);
+  Flight f4(50,list.GetNumFlight());
+  list.addFlight(f4);
+  Flight f5(100,list.GetNumFlight());
+  list.addFlight(f5);
   return 0;
 }

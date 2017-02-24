@@ -141,11 +141,16 @@ void Flight::removePassenger(Passenger passenger){
 }//removePassenger
 
 void Flight::showAllPassengers(){
-
+  ResetList();
+  for(int y = 0; y < length; y ++){
+    Passenger p = GetNextPassenger();
+    p.Print(std::cout);
+  }//for
+  ResetList();
 }//showAllPassengers
 
 bool Flight::IsFlightFull()const{
-  return true;
+  return (length == maxPassenger);
 }//isFlightFull
 
 Passenger Flight::GetNextPassenger(){

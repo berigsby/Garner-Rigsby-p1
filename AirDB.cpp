@@ -47,15 +47,8 @@ AirDB::~AirDB(){
   }//while
 }//destructor
 
-bool AirDB::IsFlightFull() const{
-  Node * loc;
-  try{
-    loc = new Node;
-    delete loc;
-    return false;
-  } catch (bad_alloc exception){
-    return true;
-  }//catch
+bool AirDB::IsFlightsFull() const{
+  return (length == maxFlights);
 }//IsFlightFull
 
 int AirDB::GetNumFlight() const{
@@ -111,6 +104,7 @@ void AirDB::addFlight(Flight flight){
     prevNode->link = newNode;
   }//else
   length ++;
+  cout << "Added flight " << length << " with " << flight.maxPassenger << " passengers" << endl;
 }//addFlight
 
 void AirDB::removeFlight(Flight flight){
@@ -144,17 +138,54 @@ Flight AirDB::GetNextFlight(){
 }//GetNextFlight
 
 void AirDB::showAllFlights(){
-
+  ResetList();
+  for(int x = 0; x < length; x++){
+    Flight f = GetNextFlight();
+    cout << "Flight Number: " << f.flightNo << endl;
+  }//for
+  ResetList();
 }//showAllFlights
 
 void AirDB::showAllFlightsAndPassengers(){
-
+  ResetList();
+  for(int x = 0; x < length; x++){
+    Flight f = GetNextFlight();
+    cout << "Flight Number: " << f.flightNo << endl;
+    f.showAllPassengers();
+  }//for
+  ResetList();
 }//showAllFlightsAndPassengers
 
 void AirDB::showNewPassengers(int flightNo, int K){
-
+  ResetList();
+  for(int x = 0; x < length; x++){
+    Flight f = GetNextFlight();
+    if(f.flightNo == flightNo){
+      cout << "Flight Number: " << f.flightNo << endl;
+      f.ResetList();
+      for(int y = K; y < f.length; y ++){
+	Passenger p = f.GetNextPassenger();
+	p.Print(std::cout);
+      }//for
+      f.ResetList();
+    }//if
+  }//for
+  ResetList();
 }//showNewPassengers
 
 void AirDB::showFirstPassenger(int flightNo, int K){
-  
+  ResetList();
+  for(int x = 0; x < length; x++){
+    Flight f = GetNextFlight();
+    if(f.flightNo == flightNo){
+      cout << "Flight Number: " << f.flightNo << endl;
+      f.ResetList();
+      for(int y = 0; y < f.length || y < K; y ++){
+	Passenger p = f.GetNextPassenger();
+	p.Print(std::cout);
+      }//for
+      f.ResetList();
+    }//if
+  }//for
+  ResetList();  
 }//showFirstPassengers
