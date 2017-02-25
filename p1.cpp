@@ -69,19 +69,33 @@ int main(){
 
       Passenger p2(flightNumber,(lastname+"-alt1"),firstname,seatNumber);
       ((list.listData->link)->flight).addPassenger(p2);
+      seatNumber += 50;
+      Passenger p22(flightNumber,(lastname+"-alt2"),firstname,seatNumber);
+      ((list.listData->link)->flight).addPassenger(p22);
       flightNumber++;
+      seatNumber -=50;
 
-      Passenger p3(flightNumber,(lastname+"-alt2"),firstname,seatNumber);
+      Passenger p3(flightNumber,(lastname+"-alt3"),firstname,seatNumber);
       (((list.listData->link)->link)->flight).addPassenger(p3);
+      seatNumber += 50;
+      Passenger p33(flightNumber,(lastname+"-alt4"),firstname,seatNumber);
+      (((list.listData->link)->link)->flight).addPassenger(p33);
+      seatNumber += 50;
+      Passenger p333(flightNumber,(lastname+"-alt5"),firstname,seatNumber);
+      (((list.listData->link)->link)->flight).addPassenger(p333);
       flightNumber++;
+      seatNumber -=100;
 
-      Passenger p4(flightNumber,(lastname+"-alt3"),firstname,seatNumber);
+      Passenger p4(flightNumber,(lastname+"-alt6"),firstname,seatNumber);
       ((((list.listData->link)->link)->link)->flight).addPassenger(p4);
       flightNumber++;
 
-      Passenger p5(flightNumber,(lastname+"-alt4"),firstname,seatNumber);
+      Passenger p5(flightNumber,(lastname+"-alt7"),firstname,seatNumber);
       (((((list.listData->link)->link)->link)->link)->flight).addPassenger(p5);
-      
+      seatNumber += 50;
+      Passenger p55(flightNumber,(lastname+"-alt8"),firstname,seatNumber);
+      (((((list.listData->link)->link)->link)->link)->flight).addPassenger(p55);
+      seatNumber -=50;
       seatNumber ++;
       }//while
     myfile.close();
