@@ -158,7 +158,9 @@ Passenger Flight::GetNextPassenger(){
   Passenger passenger;
   if(currentPos == NULL)
     currentPos = listData;
+  else
+    currentPos = currentPos->link;
   passenger = currentPos->passenger;
-  currentPos = currentPos->link;
+  //currentPos = currentPos->link;
   return passenger;
 }//GetNextPassenger
