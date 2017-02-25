@@ -104,9 +104,10 @@ Passenger Flight::GetPassenger(Passenger passenger2, bool& found){
 }//GetPassenger
 
 void Flight::addPassenger(Passenger p){
-  //Passenger * p = new Passenger(p2.flightNo, p2.lastName, p2.firstName, p2.flightNo);
-  if(IsFlightFull())
+  if(IsFlightFull()){
+    cout << "Flight " << p.flightNo << " is full. Can't add passenger." << endl;
     return;
+  }//if
   Node2 * newNode;
   Node2 * prevNode;
   Node2 * loc;
@@ -138,20 +139,26 @@ void Flight::addPassenger(Passenger p){
 }//addPassenger
 
 void Flight::removePassenger(Passenger passenger){
+  bool exists = false;
+  GetPassenger(passenger, exists);
+  if(!exists){
+    cout << "Can't remove " << passenger.lastName << ", " << passenger.firstName << ", they are not on this flight" << endl;
+    return;
+  }
   Node2 * loc = listData;
   Node2 * temp;
   if(passenger.ComparedTo(listData->passenger) == EQUAL){
     temp = loc;
     listData = listData->link;
   }else{
-    while(passenger.ComparedTo((listData->link)->passenger) != EQUAL){
+    while((passenger.ComparedTo((loc->link)->passenger)) != EQUAL){
       loc = loc->link;
     }//while
     temp = loc->link;
     loc->link = (loc->link)->link;
   }//else
   delete temp;
-  
+  cout << "Removed " << passenger.lastName <<  ", " << passenger.firstName << " from flight number " << passenger.flightNo << endl;
   length --;
 }//removePassenger
 

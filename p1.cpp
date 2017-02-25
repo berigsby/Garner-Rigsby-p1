@@ -50,7 +50,6 @@ int main(){
   cout << endl;
   cout << "Task " << x++ << endl;
   cout << "**************************************"  << endl;
-    
   ifstream myfile("passengers.dat");
   string line;
   int flightNumber = 1;
@@ -100,7 +99,20 @@ int main(){
       }//while
     myfile.close();
   }//if
-  //(((((list.listData->link)->link)->link)->link)->flight).showAllPassengers();
   list.showAllFlightsAndPassengers();
+
+  cout << endl;
+  cout << "Task " << x++ << endl;
+  cout << "**************************************"  << endl;
+  Passenger p(1,"test","extra",51);
+  (list.listData->flight).addPassenger(p);
+
+  cout << endl;
+  cout << "Task " << x++ << endl;
+  cout << "**************************************"  << endl;
+  int y = 50;
+  Passenger rp1(1,"Yox", "Tyler",y);
+  (list.listData->flight).removePassenger(rp1);
+
   return 0;
 }
