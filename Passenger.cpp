@@ -54,5 +54,5 @@ RelationType Passenger::ComparedTo(Passenger p) const{
 }//CompareTo
 
 void Passenger::Print(std::ostream& out) const{
-  out << firstName << " " << lastName << ", on flight " << flightNo << ", in seat " << seatNo << endl;
+  cout << firstName << " " << lastName << ", on flight " << flightNo << ", in seat " << seatNo << endl;
 }//Print

@@ -27,12 +27,12 @@
 #include <string>
 #include <sstream>
 using namespace std;
-
+/*
 struct Node2{
   Passenger passenger;
   Node2 * link;
 };
-
+*/
 Flight::Flight(){
   length = 0;
   listData = NULL;
@@ -100,9 +100,9 @@ void Flight::addPassenger(Passenger p){
   loc = listData;
   prevNode = NULL;
   moreToSearch = (loc != NULL);
-  
+
   while(moreToSearch){
-    if(p.ComparedTo(loc->passenger) == GREATER){
+    if(p.ComparedTo(loc->passenger) == LESS){
       prevNode = loc;
       loc = loc->link;
       moreToSearch = (loc != NULL);
@@ -142,6 +142,7 @@ void Flight::removePassenger(Passenger passenger){
 
 void Flight::showAllPassengers(){
   ResetList();
+  cout << length << endl;
   for(int y = 0; y < length; y ++){
     Passenger p = GetNextPassenger();
     p.Print(std::cout);

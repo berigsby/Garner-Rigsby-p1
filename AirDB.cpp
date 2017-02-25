@@ -27,11 +27,12 @@
 #include <string>
 
 using namespace std;
-
+/*
 struct Node{
   Flight flight;
   Node * link;
 };
+*/
 
 AirDB::AirDB(){
   length = 0;
@@ -150,7 +151,7 @@ void AirDB::showAllFlightsAndPassengers(){
   ResetList();
   for(int x = 0; x < length; x++){
     Flight f = GetNextFlight();
-    cout << "Flight Number: " << f.flightNo << endl;
+    cout << "Flight Number: " << (f.flightNo+1) << endl;
     f.showAllPassengers();
   }//for
   ResetList();

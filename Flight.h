@@ -54,5 +54,9 @@ class Flight
   void showAllPassengers();
 
 };
+struct Node2{
+  Passenger passenger;
+  Node2 * link;
+};
 
 #endif //FLIGHT_H

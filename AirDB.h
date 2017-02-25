@@ -53,5 +53,9 @@ class AirDB{
   void showNewPassengers(int flightNo, int K);
   void showFirstPassenger(int flightNo, int K);
 };
+struct Node{
+  Flight flight;
+  Node * link;
+};
 
 #endif // AIRDB_H
