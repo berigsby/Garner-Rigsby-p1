@@ -133,10 +133,10 @@ Flight AirDB::GetNextFlight(){
   Flight flight;
   if(currentPos == NULL)
     currentPos = listData;
-  else
-    currentPos = currentPos->link;
+  //else
+  //  currentPos = currentPos->link;
   flight = currentPos->flight;
-  //currentPos = currentPos->link;
+  currentPos = currentPos->link;
   return flight;
 }//GetNextFlight
 

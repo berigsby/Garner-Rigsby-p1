@@ -45,6 +45,17 @@ Flight::Flight(int maxPassenger,int flightNo){
   this->flightNo = flightNo;
 }//flight constructor
 
+/*
+void Flight::operator = (Flight old){
+  this->maxPassenger = old.maxPassenger;
+  this->flightNo = flightNo;
+  old.ResetList();
+  for(int x = 0; x < this->length; x ++){
+    this->addPassenger(old.GetNextPassenger());
+  }//for
+  //cout << "copier" << endl;
+}//operator=
+*/
 Flight::~Flight(){
   Node2 * temp;
   while(listData != NULL){
@@ -93,6 +104,9 @@ Passenger Flight::GetPassenger(Passenger passenger2, bool& found){
 }//GetPassenger
 
 void Flight::addPassenger(Passenger p){
+  //Passenger * p = new Passenger(p2.flightNo, p2.lastName, p2.firstName, p2.flightNo);
+  if(IsFlightFull())
+    return;
   Node2 * newNode;
   Node2 * prevNode;
   Node2 * loc;
@@ -102,7 +116,7 @@ void Flight::addPassenger(Passenger p){
   moreToSearch = (loc != NULL);
 
   while(moreToSearch){
-    if(p.ComparedTo(loc->passenger) == LESS){
+    if(p.ComparedTo(loc->passenger) == GREATER){
       prevNode = loc;
       loc = loc->link;
       moreToSearch = (loc != NULL);
@@ -137,12 +151,12 @@ void Flight::removePassenger(Passenger passenger){
     loc->link = (loc->link)->link;
   }//else
   delete temp;
+  
   length --;
 }//removePassenger
 
 void Flight::showAllPassengers(){
   ResetList();
-  cout << length << endl;
   for(int y = 0; y < length; y ++){
     Passenger p = GetNextPassenger();
     p.Print(std::cout);
@@ -158,9 +172,9 @@ Passenger Flight::GetNextPassenger(){
   Passenger passenger;
   if(currentPos == NULL)
     currentPos = listData;
-  else
-    currentPos = currentPos->link;
+  //else
+  // currentPos = currentPos->link;
   passenger = currentPos->passenger;
-  //currentPos = currentPos->link;
+  currentPos = currentPos->link;
   return passenger;
 }//GetNextPassenger

@@ -43,6 +43,7 @@ class Flight
   Flight();
   Flight(int maxPassenger, int flightNo);
   ~Flight();
+  //void operator=(Flight old);
   void MakeFlightEmpty();
   bool IsFlightFull() const;
   int GetNumPassengerInFlight() const;

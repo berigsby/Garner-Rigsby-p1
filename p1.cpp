@@ -50,57 +50,43 @@ int main(){
   cout << endl;
   cout << "Task " << x++ << endl;
   cout << "**************************************"  << endl;
-
-  Passenger p(1,"Ben", "Rigsby",1);
-  f1.addPassenger(p);
-  f1.showAllPassengers();
-  list.ResetList();
-  list.GetNextFlight();
-  (list.currentPos->flight).addPassenger(p);
-
-  /*
+    
   ifstream myfile("passengers.dat");
   string line;
-  int flightNumber = 0;
+  int flightNumber = 1;
   int seatNumber = 1;
   if(myfile.is_open()){
     while(getline (myfile,line)){
-      list.ResetList();
       stringstream iss(line);
       string lastname;
       string firstname;
       iss >> lastname;
       iss >> firstname;
       flightNumber = 1;
-      Passenger p(flightNumber,lastname,firstname,seatNumber);
-      list.GetNextFlight();
-      (list.currentPos->flight).addPassenger(p);
+      Passenger p1 = Passenger(flightNumber,lastname,firstname,seatNumber);
+      (list.listData->flight).addPassenger(p1);
       flightNumber++;
-      lastname += "-Alt1";
+
+      Passenger p2(flightNumber,(lastname+"-alt1"),firstname,seatNumber);
+      ((list.listData->link)->flight).addPassenger(p2);
+      flightNumber++;
+
+      Passenger p3(flightNumber,(lastname+"-alt2"),firstname,seatNumber);
+      (((list.listData->link)->link)->flight).addPassenger(p3);
+      flightNumber++;
+
+      Passenger p4(flightNumber,(lastname+"-alt3"),firstname,seatNumber);
+      ((((list.listData->link)->link)->link)->flight).addPassenger(p4);
+      flightNumber++;
+
+      Passenger p5(flightNumber,(lastname+"-alt4"),firstname,seatNumber);
+      (((((list.listData->link)->link)->link)->link)->flight).addPassenger(p5);
       
-      Passenger p1(flightNumber,lastname,firstname,seatNumber);
-      Flight F2 = list.GetNextFlight();
-      F2.addPassenger(p1);
-      flightNumber++;
-      lastname += "2";
-
-      Passenger p2(flightNumber,lastname,firstname,seatNumber);
-      f3.addPassenger(p2);
-      flightNumber++;
-      lastname += "3";
-
-      Passenger p3(flightNumber,lastname,firstname,seatNumber);
-      f4.addPassenger(p3);
-      flightNumber++;
-      lastname += "4";
-
-      Passenger p4(flightNumber,lastname,firstname,seatNumber);
-      f5.addPassenger(p4);
       seatNumber ++;
       }//while
     myfile.close();
   }//if
-  */
+  //(((((list.listData->link)->link)->link)->link)->flight).showAllPassengers();
   list.showAllFlightsAndPassengers();
   return 0;
 }
